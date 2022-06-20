@@ -1,0 +1,32 @@
+import { Class } from '../Components/Class';
+import { Enum } from '../Components/Enum';
+import { EnumValue } from '../Components/EnumValue';
+import { File } from '../Components/File';
+import { Interface } from '../Components/Interface';
+import { Method } from '../Components/Method';
+import { Namespace } from '../Components/Namespace';
+import { Parameter } from '../Components/Parameter';
+import { Property } from '../Components/Property';
+import { TypeParameter } from '../Components/TypeParameter';
+import { ICommandOptions } from './ICommandOptions';
+import { IComponentComposite } from './IComponentComposite';
+export declare abstract class Formatter {
+    protected options: ICommandOptions;
+    constructor(options: ICommandOptions);
+    header(): string[];
+    footer(): string[];
+    addAssociation(type1: string, cardinality: string, type2: string): string[];
+    serializeFile(file: File): string;
+    abstract serializeClass(component: Class): string;
+    abstract serializeEnum(component: Enum): string;
+    serializeEnumValue(component: EnumValue): string;
+    abstract serializeInterface(component: Interface): string;
+    abstract serializeMethod(component: Method): string;
+    abstract serializeNamespace(component: Namespace): string;
+    abstract serializeParameter(component: Parameter): string;
+    abstract serializeProperty(component: Property): string;
+    abstract serializeTypeParameter(component: TypeParameter): string;
+    serialize(component: IComponentComposite): string;
+    renderFiles(files: IComponentComposite[], associations: boolean): string;
+    createAssociations(files: IComponentComposite[]): string[];
+}

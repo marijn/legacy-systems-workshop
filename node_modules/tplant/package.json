@@ -1,0 +1,62 @@
+{
+  "name": "tplant",
+  "version": "3.1.0",
+  "description": "Typescript to PlantUML",
+  "keywords": [
+    "class diagram",
+    "uml diagram",
+    "plantuml",
+    "typescript",
+    "uml",
+    "cli"
+  ],
+  "homepage": "https://github.com/bafolts/tplant#readme",
+  "bugs": {
+    "url": "https://github.com/bafolts/tplant/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bafolts/tplant.git"
+  },
+  "license": "ISC",
+  "author": "Brian Folts",
+  "contributors": [
+    "Marcos V. Rubido <me@marcosvrs.com> (https://marcosvrs.com/)"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/tplant.js",
+  "types": "dist/tplant.d.ts",
+  "bin": {
+    "tplant": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:dev": "tsc --sourceMap -w",
+    "lint": "tslint -p .",
+    "lint:fix": "tslint -p . --fix",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "commander": "^6.1.0",
+    "glob": "^7.1.6",
+    "plantuml-encoder": "^1.4.0",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.0.0",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.3",
+    "tslint": "^5.16.0",
+    "tslint-microsoft-contrib": "^6.1.1"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}
